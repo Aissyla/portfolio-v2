@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Portfolio de Alyssia Drissi</title>
+        <meta name="description" content="Portfolio de Alyssia Drissi">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- MENU -->
+        <nav>
+            <h2><i class="fa-regular fa-user"></i> Alyssia</h2>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">Présentation</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#portfolio">Réalisations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <img src="img/Alyssia.webp">
+            <div>
+                <h2>Présentation</h2>
+                <p><strong>Développeuse passionnée</strong> par la création graphique, actuellement développeuse web. Je conçois et réalise des sites web du cahier des charges à la mise en ligne.</p>       
+                <a id="afirst" href="#portfolio"><i class="fa-regular fa-clipboard"></i> Portfolio</a>
+                <a id="asecond" href="img/cv.pdf"><i class="fa-regular fa-file"></i> Télécharger le CV</a>
+            </div>
+        </section>
+        
+        <!-- SKILLS -->
+        <section id="skills">
+            <h2>Compétences</h2>     
+            <img src="https://skillicons.dev/icons?i=html,css,js,sass,react,vite,github,vercel,vscode,postman,mongodb,git,yarn,bootstrap,php,mysql,symfony,angular,jquery,flutter,figma,ps,ai,xd,wordpress,cpp,redux,bash,powershell,npm">
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="portfolio">
+            <h2>Mes réalisations</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <a href="">
+                            <img src="img/infozone.png" class="img-fluid" alt="">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img src="img/admin.png" class="img-fluid" alt="">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img src="img/catget.png" class="img-fluid" alt="">
+                        </a>
+                    </div>
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2>Me Contacter</h2>
+            <form class="contact-form">
+              <label for="name">Nom</label>
+              <input type="text" id="name" name="name" placeholder="Nom" required>
+          
+              <label for="email">Adresse Email</label>
+              <input type="email" id="email" name="email" placeholder="Adresse email" required>
+          
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Votre message" rows="6" required></textarea>
+          
+              <button type="submit">Me contacter</button>
+            </form>
+        </section>
+        
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="https://fr.linkedin.com/in/alyssiadrissi" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Aissyla" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:alyssia.drissi@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p>© 2024 Alyssia DRISSI, Tous droits réservés.</p>
+            </div>
+        </footer>
+  
+        <script src="js/carousel.js"></script>
+    </body>
+</html>
