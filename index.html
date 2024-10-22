@@ -14,13 +14,16 @@
         <!-- MENU -->
         <nav>
             <h2><i class="fa-regular fa-user"></i> Alyssia</h2>
-            <ul>
+            <ul id="menu">
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#about">Présentation</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#portfolio">Réalisations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button id="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
 
         <!-- ABOUT -->
@@ -37,7 +40,8 @@
         <!-- SKILLS -->
         <section id="skills">
             <h2>Compétences</h2>     
-            <img src="https://skillicons.dev/icons?i=html,css,js,sass,react,vite,github,vercel,vscode,postman,mongodb,git,yarn,bootstrap,php,mysql,symfony,angular,jquery,flutter,figma,ps,ai,xd,wordpress,cpp,redux,bash,powershell,npm">
+            <img id="skills1" src="https://skillicons.dev/icons?i=html,css,js,sass,react,vite,github,vercel,vscode,postman,mongodb,git,yarn,bootstrap,php,mysql,symfony,angular,jquery,flutter,figma,ps,ai,xd,wordpress,cpp,redux,bash,powershell,npm">
+            <img id="skills2" src="https://skillicons.dev/icons?i=html,css,js,sass,react">
         </section>
 
         <!-- PROJECTS -->
@@ -45,24 +49,54 @@
             <h2>Mes réalisations</h2>
             <div class="carousel-container">
                 <div class="carousel">
-                    <div class="carousel-item">
-                        <a href="">
-                            <img src="img/infozone.png" class="img-fluid" alt="">
+                    <div class="carousel-item" data-description="<h3>Argent Bank : Application bancaire React</h3>
+                                                                <br>
+                                                                ** Utiliser React pour créer l'application **<br>
+                                                                ** Site responsive **<br>
+                                                                ** Utiliser React Router pour gérer les routes de l'application **<br>
+                                                                ** Utiliser Redux pour gérer le state de l'ensemble de l'application **<br>
+                                                                ** Mettre en place les bonnes pratiques du Green IT **<br>
+                                                                ** Proposer les routes API pour les manipulations sur les transactions en utilisant Swagger **">
+                        <a href="#">
+                            <img src="img/argentbank.png" class="img-fluid" alt="argentbank">
                         </a>
                     </div>
-                    <div class="carousel-item">
-                        <a href="">
-                            <img src="img/admin.png" class="img-fluid" alt="">
+                    <div class="carousel-item" data-description="<h3>Kasa : Agence de location immobilière React</h3>
+                                                                <br>
+                                                                ** Développer l'ensemble de l'application **<br>
+                                                                ** Utiliser les composants React **<br>
+                                                                ** Créer les routes avec React Router **<br>
+                                                                ** Utiliser Sass pour le design **<br>
+                                                                ** Site responsive **">
+                        <a href="#">
+                            <img src="img/Kasa.png" class="img-fluid" alt="kasa">
                         </a>
                     </div>
-                    <div class="carousel-item">
-                        <a href="">
-                            <img src="img/catget.png" class="img-fluid" alt="">
+                    <div class="carousel-item" data-description="<h3>OhMyFood : Réservation en ligne de repas</h3>
+                                                                <br>
+                                                                ** Mission : Développer un site pour 4 grands restaurants parisiens **<br>
+                                                                ** Objectifs : Menu en ligne, réservation, design mobile first **<br>
+                                                                ** Composition : Accueil + 4 pages de menus **<br>
+                                                                ** Identité graphique : Polices Shrikhand et Roboto, couleurs adaptées **<br>
+                                                                ** Animations : Loader, boutons survol, bouton j'aime, menus et plats apparaissant progressivement **<br>
+                                                                ** Responsive Design : Mobile, tablette, ordinateur **<br>
+                                                                ** Compatibilités : Chrome, Firefox **<br>
+                                                                ** Technologies : HTML, CSS, Sass (pas de JS) **">
+                        <a href="#">
+                            <img src="img/ohmyfood.png" class="img-fluid" alt="ohmyfood">
                         </a>
                     </div>
                 </div>
                 <button class="prev">❮</button>
                 <button class="next">❯</button>
+            </div>
+
+            <!-- MODAL -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p id="modal-description"></p>
+                </div>
             </div>
         </section>
 

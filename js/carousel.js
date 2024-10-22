@@ -39,3 +39,46 @@ document.querySelector('.prev').addEventListener('click', () => {
   carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
 });
 
+// Récupérer les éléments nécessaires
+const carouselItems = document.querySelectorAll('.carousel-item');
+const modal = document.getElementById('modal');
+const modalDescription = document.getElementById('modal-description');
+const closeModal = document.querySelector('.close');
+
+// Fonction pour afficher la modal
+function showModal(description) {
+    modal.style.display = "block"; // Afficher la modal
+    modalDescription.innerHTML = description; // Mettre à jour le texte de la modal
+}
+
+// Fonction pour fermer la modal
+function closeModalFunction() {
+    modal.style.display = "none"; // Cacher la modal
+}
+
+// Boucle à travers chaque élément du carousel
+carouselItems.forEach(item => {
+    // Ajouter un événement clic sur chaque élément
+    item.addEventListener('click', function(e) {
+        e.preventDefault(); // Empêcher le comportement par défaut de l'élément <a>
+        const description = item.getAttribute('data-description'); // Récupérer la description
+        showModal(description); // Afficher la modal avec la description
+    });
+});
+
+// Événement pour fermer la modal quand on clique sur la croix
+closeModal.addEventListener('click', closeModalFunction);
+
+// Événement pour fermer la modal quand on clique à l'extérieur de la modal
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        closeModalFunction();
+    }
+});
+
+document.getElementById('menu-toggle').addEventListener('click', function () {
+  const menu = document.getElementById('menu');
+  const aboutSection = document.getElementById('about');
+  menu.classList.toggle('show'); // Basculer la classe pour afficher/cacher le menu
+  aboutSection.classList.toggle('menu-open'); // Ajouter ou retirer le padding-top
+});
