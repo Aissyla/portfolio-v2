@@ -1,84 +1,72 @@
-// Sélectionne l'élément contenant toutes les images du carrousel
+// Sélectionne les éléments du carrousel, les items, les boutons et la modal
 const carousel = document.querySelector('.carousel');
-
-// Sélectionne toutes les images individuelles dans le carrousel
 const items = document.querySelectorAll('.carousel-item');
-
-// Calcule le nombre total d'images dans le carrousel
 const totalItems = items.length;
-
-// Variable qui garde une trace de l'image actuellement affichée
 let currentIndex = 0;
 
-// Ajoute un écouteur d'événement au bouton "Suivant"
-document.querySelector('.next').addEventListener('click', () => {
-  // Incrémente l'index pour passer à l'image suivante
-  currentIndex++;
-  
-  // Si l'index dépasse la dernière image, on revient à la première image
-  if (currentIndex >= totalItems) {
-    currentIndex = 0;  // On boucle au début
-  }
-  
-  // Déplace le carrousel pour afficher l'image correspondante
-  // On utilise la propriété CSS 'transform' pour décaler horizontalement les images
-  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-});
-
-// Ajoute un écouteur d'événement au bouton "Précédent"
-document.querySelector('.prev').addEventListener('click', () => {
-  // Décrémente l'index pour revenir à l'image précédente
-  currentIndex--;
-  
-  // Si l'index devient inférieur à 0, on revient à la dernière image
-  if (currentIndex < 0) {
-    currentIndex = totalItems - 1;  // On boucle à la fin
-  }
-  
-  // Déplace le carrousel pour afficher l'image correspondante
-  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-});
-
-// Récupérer les éléments nécessaires
-const carouselItems = document.querySelectorAll('.carousel-item');
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
 const modal = document.getElementById('modal');
 const modalDescription = document.getElementById('modal-description');
 const closeModal = document.querySelector('.close');
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+const aboutSection = document.getElementById('about');
 
-// Fonction pour afficher la modal
+// Gestion du défilement du carrousel
+// Lorsque l'on clique sur le bouton "Suivant", on incrémente l'index pour afficher l'image suivante.
+// Si on dépasse le nombre total d'images, on revient à la première image.
+nextButton.addEventListener('click', () => {
+  currentIndex++;
+  if (currentIndex >= totalItems) {
+    currentIndex = 0;
+  }
+  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+});
+
+// Lorsqu'on clique sur le bouton "Précédent", on décrémente l'index pour afficher l'image précédente.
+// Si on est à la première image et qu'on clique, on revient à la dernière image.
+prevButton.addEventListener('click', () => {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = totalItems - 1;
+  }
+  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+});
+
+// Fonction pour afficher la modal avec la description récupérée de l'élément cliqué
 function showModal(description) {
-    modal.style.display = "block"; // Afficher la modal
-    modalDescription.innerHTML = description; // Mettre à jour le texte de la modal
+    modal.style.display = "block";
+    modalDescription.innerHTML = description;
 }
 
 // Fonction pour fermer la modal
 function closeModalFunction() {
-    modal.style.display = "none"; // Cacher la modal
+    modal.style.display = "none";
 }
 
-// Boucle à travers chaque élément du carousel
-carouselItems.forEach(item => {
-    // Ajouter un événement clic sur chaque élément
+// Ajout d'un événement "clic" sur chaque élément du carrousel
+// Lorsqu'un élément est cliqué, on empêche son comportement par défaut et on affiche la modal avec sa description
+items.forEach(item => {
     item.addEventListener('click', function(e) {
-        e.preventDefault(); // Empêcher le comportement par défaut de l'élément <a>
-        const description = item.getAttribute('data-description'); // Récupérer la description
-        showModal(description); // Afficher la modal avec la description
+        e.preventDefault();
+        const description = item.getAttribute('data-description');
+        showModal(description);
     });
 });
 
-// Événement pour fermer la modal quand on clique sur la croix
+// Fermeture de la modal quand on clique sur la croix
 closeModal.addEventListener('click', closeModalFunction);
 
-// Événement pour fermer la modal quand on clique à l'extérieur de la modal
+// Fermeture de la modal quand on clique à l'extérieur de celle-ci
 window.addEventListener('click', function(event) {
     if (event.target === modal) {
         closeModalFunction();
     }
 });
 
-document.getElementById('menu-toggle').addEventListener('click', function () {
-  const menu = document.getElementById('menu');
-  const aboutSection = document.getElementById('about');
-  menu.classList.toggle('show'); // Basculer la classe pour afficher/cacher le menu
-  aboutSection.classList.toggle('menu-open'); // Ajouter ou retirer le padding-top
+// Basculer l'affichage du menu burger et modifier la disposition de la section about
+menuToggle.addEventListener('click', function () {
+  menu.classList.toggle('show'); 
+  aboutSection.classList.toggle('menu-open'); 
 });
