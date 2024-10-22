@@ -245,6 +245,18 @@ h3 {
     font-family: "Maven Pro", sans-serif;
 }
 
+.modal-content a {
+    color: var(--rouge);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.modal-content a:hover {
+    color: var(--rouge-fonce);
+}
+
 .close {
     color: var(--rouge);
     float: right;
@@ -475,6 +487,10 @@ h2 {
     .modal {
         align-content: center;
     }
+
+    .modal-content a {
+        font-size: 10px;
+    }   
 
     #modal-description {
         font-size: 10px;
