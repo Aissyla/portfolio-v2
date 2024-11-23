@@ -90,11 +90,6 @@ strong {
     display: none;
 }
 
-/* Ajoute un padding-top lorsque le menu est ouvert */
-#about.menu-open {
-    padding-top: 150px;
-}
-
 #about {
     display: flex;
     justify-content: space-evenly;
@@ -117,6 +112,26 @@ strong {
 #about div p {
     padding: 30px 0px;
     text-align: justify;
+}
+
+#diplome{
+    display: flex;
+    flex-direction: column;
+}
+
+#diplome div {
+    flex-direction: row;
+    width: 320px;
+    color: var(--gris-clair);
+    font-weight: 300;
+}
+
+#diplome div:nth-child(2) {
+    padding: 0px 0px 20px;
+}
+
+#diplome div i {
+    color: var(--rouge-fonce);
 }
 
 #about a {
@@ -373,6 +388,9 @@ h2 {
     #about div {
         width: 50%;
     }
+    #diplome div {
+        width: 320px !important;
+    }
     #skills1 {
         width: 80%;
     }
@@ -395,23 +413,39 @@ h2 {
         display: none;
         flex-direction: column;
         list-style: none;
-        padding: 0;
+        padding: 10px;
     }
     
     #menu.show {
         display: flex;
+        align-items: center;
         position: absolute;
-        top: 13.4%;
-        right: 45px;
-        transform: translateY(-50%);
-        background-color: var(--rouge-transparent);
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 13px;
+        top: 8%;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 2px 10px #0000001a;
+    }
+
+    #menu li{
+        margin: 20px;
+    }
+
+    #menu li a {
+        color: var(--rouge-fonce);
+        text-decoration: none;
+        font-size: 15px;
     }
 
     #menu.show li a {
+        color: var(--rouge-fonce);
+    }
+
+    #menu.show li a:hover {
+        background-color: var(--rouge-fonce);
         color: var(--blanc);
+        border-radius: 25px;
+        padding: 10px 100px;
     }
     
     #menu-toggle {
@@ -424,9 +458,9 @@ h2 {
     }
 
     #about {
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: space-between;
-        padding: 50px 0px;
+        padding: 0px 0px 60px 0px;
         margin: 0;
     }
 
@@ -434,11 +468,12 @@ h2 {
         width: 50%;
         height: auto;
         border: 10px solid var(--rouge-fonce);
+        margin-top: 50px;
     }
 
     #about h2 {
         font-size: 1.8em;
-        margin-top: 50px;
+        margin-top: 20px;
         margin-bottom: 0;
     }
 
@@ -508,6 +543,9 @@ h2 {
 
 /* En dessous de 320px pas de prise en charge */
 @media (max-width: 320px) {
+    #diplome div {
+        width: 200px !important;
+    }
     #skills2 {
         width: 80%;
     }

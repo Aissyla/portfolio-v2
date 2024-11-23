@@ -65,8 +65,36 @@ window.addEventListener('click', function(event) {
     }
 });
 
+// Sélectionne tous les liens du menu
+const menuLinks = document.querySelectorAll('#menu li a');
+
+// Ajout d'un événement "clic" sur chaque élément du menu
+menuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        // Ajoute la classe active au lien cliqué
+        menuLinks.forEach(l => l.parentElement.classList.remove('active'));
+        this.parentElement.classList.add('active');
+
+        // Ferme le menu après un délai
+        setTimeout(() => {
+            menu.classList.remove('show');
+            aboutSection.classList.remove('menu-open');
+            const barsIcon = menuToggle.querySelector('.fa-bars');
+            const timesIcon = menuToggle.querySelector('.fa-times');
+            barsIcon.style.display = 'inline';
+            timesIcon.style.display = 'none';
+        }, 300); // Délai de 300 ms
+    });
+});
+
 // Basculer l'affichage du menu burger et modifier la disposition de la section about
 menuToggle.addEventListener('click', function () {
   menu.classList.toggle('show'); 
   aboutSection.classList.toggle('menu-open'); 
+
+  // Afficher ou cacher la croix
+  const barsIcon = this.querySelector('.fa-bars');
+  const timesIcon = this.querySelector('.fa-times');
+  barsIcon.style.display = barsIcon.style.display === 'none' ? 'inline' : 'none';
+  timesIcon.style.display = timesIcon.style.display === 'none' ? 'inline' : 'none';
 });
