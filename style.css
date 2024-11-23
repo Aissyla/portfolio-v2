@@ -203,6 +203,7 @@ strong {
 .carousel-item {
     min-width: 100%;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .prev, .next {
