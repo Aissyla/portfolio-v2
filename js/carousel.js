@@ -13,6 +13,9 @@ const menuToggle = document.getElementById('menu-toggle');
 const menu = document.getElementById('menu');
 const aboutSection = document.getElementById('about');
 
+let startX; // Position de départ du toucher
+let endX; // Position de fin du toucher
+
 // Gestion du défilement du carrousel
 // Lorsque l'on clique sur le bouton "Suivant", on incrémente l'index pour afficher l'image suivante.
 // Si on dépasse le nombre total d'images, on revient à la première image.
@@ -97,4 +100,23 @@ menuToggle.addEventListener('click', function () {
   const timesIcon = this.querySelector('.fa-times');
   barsIcon.style.display = barsIcon.style.display === 'none' ? 'inline' : 'none';
   timesIcon.style.display = timesIcon.style.display === 'none' ? 'inline' : 'none';
+});
+
+// Ajout d'événements tactiles pour le carrousel
+carousel.addEventListener('touchstart', (event) => {
+    startX = event.touches[0].clientX; // Enregistre la position X du toucher
+});
+
+carousel.addEventListener('touchmove', (event) => {
+    endX = event.touches[0].clientX; // Enregistre la position X pendant le mouvement
+});
+
+carousel.addEventListener('touchend', () => {
+    if (startX > endX + 50) {
+        // Si le mouvement est vers la gauche, passe à l'élément suivant
+        nextButton.click(); // Simule un clic sur le bouton "Suivant"
+    } else if (startX < endX - 50) {
+        // Si le mouvement est vers la droite, passe à l'élément précédent
+        prevButton.click(); // Simule un clic sur le bouton "Précédent"
+    }
 });
