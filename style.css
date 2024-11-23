@@ -229,6 +229,16 @@ strong {
     height: auto;
 }
 
+.click-here {
+    text-align: center;
+    margin-bottom: 100px;
+    font-size: 1.2em;
+}
+
+.click-here p {
+    color: var(--rouge-fonce);
+}
+
 h3 {
     font-size: 1.5em;
     letter-spacing: -1px;
@@ -385,8 +395,14 @@ h2 {
 
 /* Tablet */
 @media (max-width: 1024px) {
+    #about {
+        flex-direction: column-reverse;
+    }
     #about div {
-        width: 50%;
+        width: 80%;
+    }
+    #about img{
+        margin-top: 50px;
     }
     #diplome div {
         width: 320px !important;
@@ -494,6 +510,10 @@ h2 {
         font-size: 13px;
     }
 
+    #diplome div {
+        width: 200px !important;
+    }
+
     #skills {
         height: 350px;
     }
@@ -511,11 +531,12 @@ h2 {
         display: block;
     }
 
-    #portfolio {
-        padding: 50px 0px;
+    #portfolio h2 {
+        margin-bottom: 0;
     }
 
-    #portfolio h2 {
+    .click-here p {
+        font-size: 14px;
         margin-bottom: 0;
     }
 
@@ -543,15 +564,21 @@ h2 {
 
 /* En dessous de 320px pas de prise en charge */
 @media (max-width: 320px) {
-    #diplome div {
-        width: 200px !important;
-    }
     #skills2 {
         width: 80%;
     }
 
     #portfolio {
         padding: 100px 0px;
+    }
+
+    .click-here { 
+        margin: 0;
+    }
+
+    .click-here p {
+        font-size: 12px;
+        margin-bottom: 0;
     }
 
     #modal-description {
