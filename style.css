@@ -29,6 +29,7 @@
 
 body {
     font-family: "Maven Pro", sans-serif;
+    overflow-x: hidden;
 }
 
 a {
@@ -234,10 +235,19 @@ strong {
     text-align: center;
     margin-bottom: 100px;
     font-size: 1.2em;
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    100% { transform: translateX(-2px); }
 }
 
 .click-here p {
     color: var(--rouge-fonce);
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 h3 {
