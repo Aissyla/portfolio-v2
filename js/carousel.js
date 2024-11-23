@@ -112,11 +112,10 @@ carousel.addEventListener('touchmove', (event) => {
 });
 
 carousel.addEventListener('touchend', () => {
-    if (startX > endX + 50) {
-        // Si le mouvement est vers la gauche, passe à l'élément suivant
+    const distance = startX - endX; // Calcule la distance du mouvement
+    if (distance > 30) { // Si le mouvement est vers la gauche
         nextButton.click(); // Simule un clic sur le bouton "Suivant"
-    } else if (startX < endX - 50) {
-        // Si le mouvement est vers la droite, passe à l'élément précédent
+    } else if (distance < -30) { // Si le mouvement est vers la droite
         prevButton.click(); // Simule un clic sur le bouton "Précédent"
     }
 });
